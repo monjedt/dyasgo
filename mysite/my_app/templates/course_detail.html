@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ course.name }}</title>
+</head>
+<body>
+    <h1>{{ course.name }}</h1>
+    <p>{{ course.description }}</p>
+    <p>Instructor: {{ course.instructor }}</p>
+    <p>Prerequisites: 
+        {% for prerequisite in course.prerequisites.all %}
+            {{ prerequisite.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <p>Capacity: {{ course.capacity }}</p>
+</body>
+</html>
